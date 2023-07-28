@@ -16,16 +16,20 @@ pipeline {
                 bat 'mvn test'
             }
         }
-        stage ('Compile') {
-            steps {
-                bat 'mvn install'
-                echo "installed"
-            }
-        }
-        stage ('static analysis') {
-            steps {
-                withSonarQubeEnv('def') {
-                    bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.projectkey=hello_world -Dsonar.java.binaries=target'
+        stage ("misc") {
+            parallel {
+                stage ('Compile') {
+                    steps {
+                        bat 'mvn install'
+                        echo "installed"
+                    }
+                }
+                stage ('static analysis') {
+                    steps {
+                        withSonarQubeEnv('def') {
+                            bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.projectkey=hello_world -Dsonar.java.binaries=target'
+                        }
+                    }
                 }
             }
         }
