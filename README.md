@@ -28,4 +28,6 @@ Si vous ne pouvez pas rendre votre serveur accessible de l'extérieur, utilisez 
 Faites un commit qui casse un test ou la compilation, pushez et verifiez que tout fonctionne.
 
 
+
+
 Il est fortement conseillé d'effectuer des test tout au long de la procedure.
