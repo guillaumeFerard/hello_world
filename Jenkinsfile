@@ -19,6 +19,7 @@ pipeline {
         stage ('Compile') {
             steps {
                 bat 'mvn install'
+                echo installed
             }
         }
     }
