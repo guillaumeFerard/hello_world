@@ -22,6 +22,13 @@ pipeline {
                 echo "installed"
             }
         }
+        stage ('static analysis') {
+            steps {
+                withSonarQubeEnv('def') {
+                    bat 'mvn sonar:sonar -Dsonar.host.url=localhost:9000 -Dsonar.projectkey=hello_world -Dsonar.java.binaries=target'
+                }
+            }
+        }
     }
     post {
         success {
