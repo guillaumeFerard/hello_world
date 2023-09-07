@@ -8,7 +8,7 @@ public class App
 {
     public static String get_message()
     {
-        return "Hello Worl!";
+        return "Hello World !";
     }
 
     public static void main( String[] args )
